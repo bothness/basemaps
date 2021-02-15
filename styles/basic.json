@@ -1,10 +1,15 @@
 {
   "id": "basic",
   "name": "Basic",
-  "zoom": 1,
-  "pitch": 0,
-  "center": [0, 0],
-  "glyphs": "https://bothness.github.io/basemaps/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://cdn.jsdelivr.net/gh/bothness/basemaps/fonts/{fontstack}/{range}.pbf",
+  "sources": {
+    "openmaptiles": {
+      "tiles": ["https://cdn.jsdelivr.net/gh/bothness/basemaps/tiles/{z}/{x}/{y}.pbf"],
+      "type": "vector",
+      "maxzoom": 7,
+      "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>"
+    }
+  },
   "layers": [{
     "id": "background",
     "type": "background",
@@ -649,15 +654,6 @@
     "maxzoom": 12,
     "source-layer": "place"
   }],
-  "bearing": 0,
-  "sources": {
-    "openmaptiles": {
-      "tiles": ["https://bothness.github.io/basemaps/tiles/{z}/{x}/{y}.pbf"],
-      "type": "vector",
-      "maxzoom": 7,
-      "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>"
-    }
-  },
   "version": 8,
   "metadata": {
     "maptiler:copyright": "This style is closely based on the MapTiler Basic style.",

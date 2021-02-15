@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Maplibre Demos</title>
+  <meta name='viewport' content='wiDth=device-width,initial-scale=1'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@latest/dist/mapbox-gl.css" />
+  <style>
+    .map {
+      width: 680px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map-basic" class="map"></div>
+  <div id="map-bright" class="map"></div>
+  <div id="map-positron" class="map"></div>
+  <div id="map-darkmatter" class="map"></div>
+  <div id="map-hybrid" class="map"></div>
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@latest/dist/mapbox-gl.js"></script>
+  <script>
+    const styles = [
+      {url: '../styles/basic.json', id: 'map-basic'},
+      {url: '../styles/bright.json', id: 'map-bright'},
+      {url: '../styles/positron.json', id: 'map-positron'},
+      {url: '../styles/darkmatter.json', id: 'map-darkmatter'},
+      {url: '../styles/hybrid.json', id: 'map-hybrid'}
+    ];
+
+    let maps = {};
+
+    // Set plugin for right-to-left text (will lazy load only if needed)
+    mapboxgl.setRTLTextPlugin(
+      'https://cdn.jsdelivr.net/npm/@mapbox/mapbox-gl-rtl-text@0.2.3/mapbox-gl-rtl-text.js',
+      null,
+      true
+    );
+
+    // Initialise the maps
+    styles.forEach(style => {
+      maps[style.id] = new mapboxgl.Map({
+        container: style.id,
+        style: style.url,
+        center: [35.5018, 33.8938],
+        zoom: 8.5
+      });
+      maps[style.id].addControl(new mapboxgl.NavigationControl());
+    });
+  </script>
+
+</body>
+
+</html>

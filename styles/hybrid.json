@@ -4,7 +4,22 @@
   "zoom": 1,
   "pitch": 0,
   "center": [0, 0],
-  "glyphs": "https://bothness.github.io/basemaps/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "https://cdn.jsdelivr.net/gh/bothness/basemaps/fonts/{fontstack}/{range}.pbf",
+  "sources": {
+    "openmaptiles": {
+      "tiles": ["https://cdn.jsdelivr.net/gh/bothness/basemaps/tiles/{z}/{x}/{y}.pbf"],
+      "type": "vector",
+      "maxzoom": 7,
+      "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>"
+    },
+    "satellite": {
+      "tiles": ["https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false"],
+      "type": "raster",
+      "tileSize": 256,
+      "maxzoom": 17,
+      "attribution": "<a href=\"https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer\" target=\"_blank\">&copy; ESRI World Imagery</a>"
+    }
+  },
   "layers": [{
     "id": "satellite",
     "type": "raster",
@@ -255,22 +270,6 @@
     "maxzoom": 12,
     "source-layer": "place"
   }],
-  "bearing": 0,
-  "sources": {
-    "satellite": {
-      "tiles": ["https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?blankTile=false"],
-      "type": "raster",
-      "tileSize": 256,
-      "maxzoom": 17,
-      "attribution": "<a href=\"https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer\" target=\"_blank\">&copy; ESRI World Imagery</a>"
-    },
-    "openmaptiles": {
-      "tiles": ["https://bothness.github.io/basemaps/tiles/{z}/{x}/{y}.pbf"],
-      "type": "vector",
-      "maxzoom": 7,
-      "attribution": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>"
-    }
-  },
   "version": 8,
   "metadata": {
     "maputnik:renderer": "mbgljs",
